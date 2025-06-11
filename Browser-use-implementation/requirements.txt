@@ -1,0 +1,7 @@
+asyncio
+jsonschema
+python-dotenv
+langchain-google-genai
+browser-use
+google-generativeai
+pydantic
