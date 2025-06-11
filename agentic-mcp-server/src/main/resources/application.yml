@@ -1,0 +1,29 @@
+server:
+  port: 3001
+  servlet:
+    context-path: /agentic-mcp-server
+spring:
+  application:
+    name: agentic-mcp-server
+  main:
+    banner-mode: off
+  ai:
+    mcp:
+      server:
+        name: agentic-mcp-server
+        version: 1.0.0
+        type: sync
+        studio: false
+        base-url: /agentic-mcp-server
+        enabled: true
+  datasource:
+    url: jdbc:postgresql://postgres.cfmwkwawepjf.us-east-2.rds.amazonaws.com:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: hackathon
+    hibernate:
+      ddl-auto: update
