@@ -1,0 +1,22 @@
+[
+    "🔗  Navigated to https://www.linkedin.com",
+    "⌨️  Input I am happy to announce that I am joining into index 3",
+    "⌨️  Sent keys: ENTER",
+    "🔍 Scrolled down the page by 1000 pixels",
+    "🖱️  Clicked button with index 5: ",
+    "🔍 Scrolled down the page by 1000 pixels",
+    "🖱️  Clicked button with index 116: ",
+    "🖱️  Clicked button with index 35: You are on the messaging overlay. Press enter to minimize it.",
+    "🔙  Navigated back",
+    "🔍 Scrolled down the page by 1000 pixels",
+    "🖱️  Clicked button with index 71: ",
+    "🔙  Navigated back",
+    "🔍 Scrolled down the page by 1000 pixels",
+    "🖱️  Clicked button with index 65: ",
+    "🔙  Navigated back",
+    "🔍 Scrolled down the page by 1000 pixels",
+    "🔍 Scrolled down the page by 1000 pixels",
+    "🖱️  Clicked button with index 66: ",
+    "🔙  Navigated back",
+    "I have collected information for 3 users who posted about new jobs or promotions:\n[\n    {\n        \"name\": \"Dee Nguyen\",\n        \"job_title\": \"BD Consultant at Hashkey Global | Co-founder at The Real Coin\",\n        \"company\": \"Hashkey Global and The Real Coin\",\n        \"location\": \"Vietnam\"\n    },\n    {\n        \"name\": \"Çiğdem Gülerman Sauer\",\n        \"job_title\": \"Neurological Speech Disorders Specialist\",\n        \"company\": \"Autismedi\",\n        \"location\": \"Austin, Texas, United States\"\n    },\n    {\n        \"name\": \"Marc Valdez\",\n        \"job_title\": \"Ornamental installer and finisher\",\n        \"company\": \"A.P. Ornamental\",\n        \"location\": \"Houston, Texas, United States\"\n    }\n]"
+]
