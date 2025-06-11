@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+nltk
+matplotlib
+seaborn
+markdown2
+yfinance
+pandas
+numpy
+quantstats
+pypfopt
+requests
+    
