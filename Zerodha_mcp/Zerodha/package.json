@@ -1,0 +1,26 @@
+{
+  "name": "zerodha-connect",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/app/zerodha.ts",
+    "tools": "ts-node ./src/tools/tools.ts",
+    "n8n": "npx n8n",
+    "build": "tsc",
+    "test": "mocha",
+    "dev": "ts-node ./src/app/zerodha.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "kiteconnect": "^5.0.1",
+    "mcp-remote": "^0.1.14",
+    "n8n": "^1.95.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
