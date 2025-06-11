@@ -1,0 +1,36 @@
+<div class="dashboard-flex">
+
+  <div class="main-content" [ngClass]="{ 'chat-open': isChatOpen, 'chat-closed': !isChatOpen }">
+    <div class="tabs-center">
+      <app-tabs></app-tabs>
+    </div>
+
+    <div *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+    
+    <div *ngIf="!loading">
+      <!-- AG Grid for Leads -->
+      <ag-grid-angular style="width: auto; min-width: 300px; height: 400px;" class="ag-theme-quartz" [rowData]="rowData"
+        [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" rowSelection="multiple"
+        [suppressRowClickSelection]="true" [rowHeight]="50" [headerHeight]="50" (gridReady)="onGridReady($event)"
+        (selectionChanged)="onSelectionChanged($event)">
+      </ag-grid-angular>
+    </div>
+  </div>
+
+  <app-chat></app-chat>
+</div>
+
+
+<!-- Trigger KYC Button (when leads are selected and chat is closed) -->
+<button class="trigger-kyc-btn" *ngIf="hasSelectedLeads && !isChatOpen" (click)="triggerKYC()"
+  title="Trigger KYC for Selected Leads">
+  🔍 Trigger KYC ({{selectedLeads.length}})
+</button>
+
+<!-- Trigger KYC Button (when chat is open and leads are selected) -->
+<button class="trigger-kyc-btn chat-open-position" *ngIf="hasSelectedLeads && isChatOpen" (click)="triggerKYC()"
+  title="Trigger KYC for Selected Leads">
+  🔍 Trigger KYC ({{selectedLeads.length}})
+</button>

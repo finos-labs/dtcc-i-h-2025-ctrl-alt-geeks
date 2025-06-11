@@ -1,0 +1,36 @@
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 1rem 2rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 150px;
+  width: auto;
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+}

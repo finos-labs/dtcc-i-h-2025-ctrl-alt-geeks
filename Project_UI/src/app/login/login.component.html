@@ -1,0 +1,49 @@
+<div class="login-container">
+  <div class="login-header">
+    <h2>Welcome Back</h2>
+    <p>Please sign in to your account</p>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="username"
+          required
+          [(ngModel)]="username"
+          name="username"
+          (input)="clearError()"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div class="input-wrapper">
+        <input
+          type="password"
+          id="password"
+          required
+          [(ngModel)]="password"
+          name="password"
+          (input)="clearError()"
+        />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="login-btn"
+      [class.loading]="isLoading"
+      [disabled]="isLoading"
+    >
+      <span *ngIf="!isLoading">Sign In</span>
+    </button>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

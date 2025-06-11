@@ -1,0 +1,75 @@
+<div class="dashboard-flex">
+
+    <div class="main-content" [ngClass]="{ 'chat-open': isChatOpen, 'chat-closed': !isChatOpen }">
+        <div class="tabs-center">
+            <app-tabs></app-tabs>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-item">
+                <h3>Expected Portfolio</h3>
+                <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels"
+                    [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                </canvas>
+            </div>
+        </div>
+
+        <!-- Positions Table Section -->
+        <div class="positions-container">
+            <div class="positions-header">
+                <h3>Current Positions</h3>
+                <button class="refresh-btn" (click)="refreshPositions()" [disabled]="isLoadingPositions">
+                    {{ isLoadingPositions ? 'Loading...' : 'Refresh' }}
+                </button>
+            </div>
+
+            <div *ngIf="isLoadingPositions" class="loading-message">
+                Loading positions data...
+            </div>
+
+            <div *ngIf="positionsError" class="error-message">
+                {{ positionsError }}
+                <button class="retry-btn" (click)="refreshPositions()">Retry</button>
+            </div>
+
+            <div *ngIf="!isLoadingPositions && !positionsError" class="table-container">
+                <table class="positions-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Exchange</th>
+                            <th>Quantity</th>
+                            <th>Avg Price</th>
+                            <th>Last Price</th>
+                            <th>P&L</th>
+                            <th>Buy Qty</th>
+                            <th>Buy Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let position of positionsData">
+                            <td class="symbol">{{ position.tradingsymbol }}</td>
+                            <td>{{ position.exchange }}</td>
+                            <td class="quantity">{{ position.quantity }}</td>
+                            <td class="price">₹{{ position.average_price | number:'1.2-2' }}</td>
+                            <td class="price">₹{{ position.last_price | number:'1.2-2' }}</td>
+                            <td class="pnl" [ngClass]="{ 'positive': position.pnl > 0, 'negative': position.pnl < 0 }">
+                                ₹{{ position.pnl | number:'1.2-2' }}
+                            </td>
+                            <td class="quantity">{{ position.buy_quantity }}</td>
+                            <td class="price">₹{{ position.buy_price | number:'1.2-2' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div *ngIf="positionsData.length === 0" class="no-data-message">
+                    No positions data available.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <app-chat></app-chat>
+
+</div>

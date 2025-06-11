@@ -1,0 +1,219 @@
+// Add these styles to your existing portfolio.component.scss
+
+.positions-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .positions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h3 {
+      margin: 0;
+      color: #333;
+      font-size: 1.5rem;
+    }
+
+    .refresh-btn {
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.3s;
+
+      &:hover:not(:disabled) {
+        background: #0056b3;
+      }
+
+      &:disabled {
+        background: #6c757d;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .loading-message {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .error-message {
+    text-align: center;
+    padding: 2rem;
+    color: #dc3545;
+    font-size: 1rem;
+
+    .retry-btn {
+      margin-left: 1rem;
+      padding: 0.5rem 1rem;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+
+      &:hover {
+        background: #c82333;
+      }
+    }
+  }
+
+  .table-container {
+    overflow-x: auto;
+
+    .positions-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+
+      th, td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        color: #495057;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      tbody tr:hover {
+        background-color: #e9ecef;
+      }
+
+      .symbol {
+        font-weight: 600;
+        color: #007bff;
+      }
+
+      .quantity {
+        text-align: right;
+        font-weight: 500;
+      }
+
+      .price {
+        text-align: right;
+        font-family: 'Courier New', monospace;
+      }
+
+      .pnl {
+        text-align: right;
+        font-weight: 600;
+        font-family: 'Courier New', monospace;
+
+        &.positive {
+          color: #28a745;
+        }
+
+        &.negative {
+          color: #dc3545;
+        }
+      }
+    }
+
+    .no-data-message {
+      text-align: center;
+      padding: 3rem;
+      color: #6c757d;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+  }
+}
+
+// Responsive design for mobile
+@media (max-width: 768px) {
+  .positions-container {
+    margin: 1rem 0;
+    padding: 1rem;
+
+    .positions-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+
+      .refresh-btn {
+        align-self: flex-end;
+      }
+    }
+
+    .table-container {
+      .positions-table {
+        font-size: 0.8rem;
+
+        th, td {
+          padding: 0.5rem 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+// Dark mode support (optional)
+@media (prefers-color-scheme: dark) {
+  .positions-container {
+    background: #2d3748;
+    color: #e2e8f0;
+
+    .positions-header h3 {
+      color: #e2e8f0;
+    }
+
+    .positions-table {
+      th {
+        background-color: #4a5568;
+        color: #e2e8f0;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #4a5568;
+      }
+
+      tbody tr:hover {
+        background-color: #2d3748;
+      }
+
+      td {
+        border-bottom-color: #4a5568;
+      }
+
+      .symbol {
+        color: #63b3ed;
+      }
+    }
+
+    .no-data-message {
+      color: #a0aec0;
+    }
+  }
+}
+
+.charts-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 20px;
+}
+
+.chart-item {
+  text-align: center;
+}

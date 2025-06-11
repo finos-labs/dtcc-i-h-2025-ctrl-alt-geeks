@@ -1,0 +1,132 @@
+/* Container for overall layout */
+.dashboard-flex {
+  display: flex;
+  position: relative;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  transition: margin-right 0.3s ease;
+}
+
+/* When chat is open, leave space for sidebar */
+.main-content.chat-open {
+  margin-right: 350px; /* match your .chat-sidebar width */
+}
+
+/* When chat is closed, use full width */
+.main-content.chat-closed {
+  margin-right: 0;
+}
+
+/* Center the ag-Grid within the main content */
+.grid-container {
+  display: flex;
+  max-width: 500px;
+  width: 500px;
+}
+
+/* Tab strip centering (optional, if not already styled) */
+.tabs-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Chat sidebar */
+.chat-sidebar {
+  width: 350px; /* adjust as needed */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slide out/in */
+.chat-sidebar.chat-open {
+  transform: translateX(0);
+}
+
+.chat-sidebar.chat-closed {
+  transform: translateX(100%);
+}
+
+/* Chat header */
+.chat-header {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Chat messages scroll area */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Individual messages */
+.message p {
+  margin: 0.5rem 0;
+}
+
+.message p.user {
+  text-align: right;
+}
+
+.message p.bot {
+  text-align: left;
+}
+
+/* Input area */
+.chat-input-container {
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.send-btn,
+.close-chat-btn,
+.chat-toggle-btn {
+  cursor: pointer;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* customers.component.scss */
+:host {
+  display: block;
+}
+
+.status-green {
+  color: green !important;
+}
+
+.status-red {
+  color: red !important;
+}

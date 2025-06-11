@@ -1,0 +1,28 @@
+<div class="dashboard-flex">
+  <div class="main-content" [ngClass]="{ 'chat-open': isChatOpen, 'chat-closed': !isChatOpen }">
+    <div class="tabs-center">
+      <app-tabs></app-tabs>
+    </div>
+
+    <div *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+
+    <div *ngIf="!loading">
+    <div class="grid-container">
+      <ag-grid-angular
+        class="ag-theme-quartz"
+        style="width: auto; min-width: 1500px;"
+        [style.height.px]="(rowData.length || 300) * 100"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [gridOptions]="{ rowHeight: 50, headerHeight: 50 }"
+        (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+    </div>
+    </div>
+  </div>
+
+  <app-chat></app-chat>
+</div>
+
